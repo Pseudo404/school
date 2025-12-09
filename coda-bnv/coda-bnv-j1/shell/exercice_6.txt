@@ -1,0 +1,2 @@
+echo "Natasha Romanov" >> marvel/black_widow.txt
+echo "Diana Prince" >> dc/wonder_woman.txt

@@ -1,0 +1,40 @@
+{
+  "program_name": "Boucle 5 tours",
+  "instructions": [
+    {
+      "name": "add",
+      "register": "cursor",
+      "value": 0
+    },
+    {
+      "name": "add",
+      "register": "storage",
+      "value": 1
+    },
+    {
+      "name": "write"
+    },
+    {
+      "name": "add",
+      "register": "cursor",
+      "value": 2
+    },
+    {
+      "name": "write"
+    },
+    {
+      "name": "add",
+      "register": "condition",
+      "value": 2
+    },  
+    {
+      "name": "zjump",
+      "instruction_number": 8,
+      "value": 10
+    },
+    {
+      "name": "jump",
+      "instruction_number": 3
+    }
+  ]
+}

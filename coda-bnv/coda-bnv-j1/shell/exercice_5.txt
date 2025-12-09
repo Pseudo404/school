@@ -1,0 +1,3 @@
+cd marvel
+mkdir avengers
+cp captain_america.txt avengers/ && cp iron_man.txt avengers/
