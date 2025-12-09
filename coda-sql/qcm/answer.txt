@@ -1,0 +1,140 @@
+Exercice I
+
+1. SELECT * FROM utilisateur;
+
+2. SELECT nom, prenom FROM utilisateur;
+
+3. SELECT prenom FROM utilisateur WHERE nom="Doe";
+
+4. SELECT inscription, email FROM utilisateur WHERE date(CURRENT_DATE)=date(inscription);
+
+5. SELECT prenom, nom FROM utilisateur WHERE year(inscription) BETWEEN 1990 and 1999;
+
+Exercice II
+
+1. SELECT nom, prenom, email, inscription FROM utilisateur ORDER BY nom ASC;
+
+2. SELECT COUNT(nom) FROM utilisateur WHERE nom="Doe";
+
+3. SELECT nom, prenom, COUNT(*) AS homonymes FROM utilisateur GROUP BY nom, prenom;
+
+4. SELECT DISTINCT nom FROM utilisateur;
+
+5. SELECT DISTINCT nom, prenom FROM utilisateur;
+
+6. SELECT * FROM utilisateur ORDER BY inscription DESC;
+
+7. SELECT COUNT(*) FROM utilisateur WHERE CURRENT_TIME=date(inscription);
+
+8. SELECT COUNT(*) FROM utilisateur WHERE year(inscription) BETWEEN 1990 and 1999;
+
+9.SELECT inscription, COUNT(date(inscription)) as nb FROM utilisateur GROUP BY date(inscription);
+
+Exercice III
+
+1. SELECT email FROM utilisateur WHERE email LIKE "%@gmail%";
+
+2. SELECT COUNT(email) FROM utilisateur WHERE email LIKE "%@gmail%";
+
+3. INSERT INTO utilisateur (prenom, nom, email, inscription) VALUES ("Gates", "Bill", "bill.gates@microsoftcom", 1975-04-04), ("Jobs", "Steve"," steve.jobsapple.com", 1976-04-01.);
+
+4. SELECT * FROM utilisateur WHERE email NOT LIKE "%@%.%";
+
+Exercice IV
+
+1. SELECT * FROM utilisateur WHERE year(inscription) LIKE "2025%";
+
+2. SELECT nom FROM utilisateur GROUP BY nom HAVING count(nom) > 1;
+
+3. SELECT nom, prenom FROM utilisateur GROUP BY nom, prenom HAVING count(nom) > 1 AND COUNT(prenom)>1;
+
+4. INSERT INTO utilisateur (nom, prenom, email) VALUES ("Doe", "Jonathan", "john.doe@anonymous.com");
+
+Exercice V
+
+1. SELECT * FROM utilisateur JOIN commande ON utilisateur.id=commande.id_utilisateur;
+
+2. SELECT DISTINCT nom, prenom FROM utilisateur JOIN commande ON utilisateur.id=commande.id_utilisateur;
+
+3. SELECT COUNT(DISTINCT utilisateur.id) as nb FROM utilisateur JOIN commande ON utilisateur.id=commande.id_utilisateur;
+
+4. SELECT nom, prenom, COUNT(utilisateur.id) as nb FROM utilisateur JOIN commande ON (utilisateur.id=commande.id_utilisateur) GROUP BY utilisateur.id;
+
+5. SELECT nom, prenom FROM utilisateur LEFT JOIN commande ON (commande.id_utilisateur=utilisateur.id) WHERE commande.id_utilisateur IS NULL;
+
+6. SELECT nom, prenom FROM utilisateur LEFT JOIN commande ON (commande.id_utilisateur=utilisateur.id) WHERE date_commande=CURRENT_DATE;
+
+7. SELECT nom FROM produit LEFT JOIN contenucommande ON (produit.id=contenucommande.id_produit) WHERE id_produit is null;
+
+8. SELECT produit.nom FROM produit JOIN contenucommande ON contenucommande.id_produit=produit.id JOIN commande ON contenucommande.id_commande=commande.id JOIN utilisateur ON utilisateur.id=commande.id_utilisateur WHERE utilisateur.nom="Bezos";
+
+Exercice VI
+
+1. CREATE DATABASE revisions;
+
+2. CREATE TABLE restaurants (
+        id int auto_increment PRIMARY KEY,
+        nom varchar(100),
+       type_cuisine varchar(100),
+        localisation varchar(100) not null,
+       prix_moyen float
+   );
+
+3. INSERT INTO restaurants (localisation) 
+   VALUES ('Paris'), ('Paris'), ('Bordeaux'), ('Bordeaux'), ('Lyon'), ('Lyon');
+
+   UPDATE restaurants SET nom="burger_king" WHERE id%2=0;
+   UPDATE restaurants SET nom="mcdonald's" WHERE id%2!=0
+   UPDATE restaurants SET type_cuisine="français" WHERE localisation="Paris";
+   UPDATE restaurants SET type_cuisine="americain" WHERE localisation="Lyon";
+   UPDATE restaurants SET type_cuisine="italien" WHERE localisation="Bordeaux";
+   UPDATE restaurants SET prix_moyen=20.5 WHERE nom="burger_king";
+   UPDATE restaurants SET prix_moyen=18.2 WHERE nom="mcdonald's";
+
+4. SELECT nom FROM restaurants WHERE localisation='Paris';
+
+5. SELECT DISTINCT type_cuisine FROM restaurants;
+
+6. SELECT nom, localisation FROM restaurants WHERE prix_moyen<50;
+
+7. SELECT COUNT(localisation) AS nb FROM restaurants WHERE localisation="Paris";
+
+8. SELECT nom FROM restaurants GROUP BY nom HAVING COUNT(nom)>=2;
+
+9. SELECT nom FROM restaurants ORDER BY nom ASC;
+
+10. SELECT COUNT(nom) FROM restaurants GROUP BY localisation;
+
+11. SELECT nom FROM restaurants WHERE nom LIKE "%le%";
+
+12. SELECT nom, localisation FROM restaurants WHERE prix_moyen < ANY (SELECT prix_moyen FROM restaurants WHERE id=1);
+
+13. SELECT MIN(prix_moyen) FROM restaurants;
+
+14. SELECT MAX(prix_moyen) FROM restaurants;
+
+15. SELECT AVG(prix_moyen) FROM restaurants WHERE localisation="Paris";
+
+16. SELECT nom, localisation FROM restaurants WHERE prix_moyen < ANY(SELECT AVG(prix_moyen) FROM restaurants);
+
+17. SELECT nom, localisation, prix_moyen/2 FROM restaurants;
+
+VII
+
+1. SELECT ville_nom, ville_population_2012 FROM villes_france_free ORDER BY ville_population_2012 DESC LIMIT 10;
+
+2. SELECT ville_nom, ville_surface FROM villes_france_free ORDER BY ville_surface ASC LIMIT 50;
+
+3. SELECT departement_nom, departement_code FROM departement WHERE departement_code LIKE "97%";
+
+4. SELECT ville_nom, ville_population_2012, departement_nom FROM villes_france_free JOIN departement ON villes_france_free.ville_departement=departement.departement_code ORDER BY ville_population_2012 DESC LIMIT 10;
+
+5. SELECT COUNT(ville_nom) FROM villes_france_free WHERE ville_nom LIKE "Saint%";
+
+6. SELECT ville_nom, COUNT(ville_nom) AS nb FROM villes_france_free GROUP BY ville_nom HAVING COUNT(ville_nom) > 1 ORDER BY nb DESC;
+
+7. SELECT ville_nom, ville_surface FROM villes_france_free WHERE ville_surface>ANY(SELECT AVG(ville_surface) FROM villes_france_free);
+
+8. SELECT DISTINCT departement_nom FROM departement JOIN villes_france_free ON villes_france_free.ville_departement=departement.departement_code GROUP BY departement_code HAVING 2000000<SUM(ville_population_2012);
+
+

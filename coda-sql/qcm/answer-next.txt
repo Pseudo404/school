@@ -1,0 +1,59 @@
+Exercice 1:
+CREATE DATABASE tom_cizeau;
+
+Exercice 3:
+SELECT * FROM note WHERE cc>=11;
+
+Exercice 4:
+SELECT * FROM note WHERE cc BETWEEN 8 AND 11;
+
+Exercice 5:
+SELECT * FROM note WHERE id_etudiant=1;
+
+Exercice 6:
+SELECT COUNT(id) AS etudiants FROM etudiant;
+
+Exercice 7:
+SELECT cc, partiel FROM note JOIN matiere ON note.id_matiere=matiere.id WHERE matiere.nom="SQL";
+
+Exercice 8:
+SELECT etudiant.prenom, etudiant.nom, cc, partiel FROM note JOIN matiere ON note.id_matiere=matiere.id JOIN etudiant ON etudiant.id=note.id_etudiant WHERE matiere.nom="SQL" ORDER BY partiel, cc ASC;
+
+Exercice 9:
+SELECT matiere.nom, AVG(cc) AS moyenne_cc, AVG(partiel) AS moyenne_partiel FROM note JOIN matiere ON note.id_matiere=matiere.id WHERE matiere.nom="SQL";
+
+Exercice 10:
+INSERT INTO etudiant (prenom, nom) VALUES ("Tom", "Cizeau");
+
+Exercice 11:
+SELECT * FROM matiere WHERE nom LIKE "_H%";
+
+Exercice 12:
+SELECT DISTINCT partiel FROM note;
+
+Exercice 13:
+SELECT nom, prenom FROM etudiant WHERE id_classe IS NULL;
+
+Exercice 14:
+SELECT COUNT(DISTINCT cc) FROM note;
+
+Exercice 15:
+SELECT MAX(cc) AS note_max FROM note WHERE note.id_matiere=1;
+
+Exercice 16:
+SELECT id_matiere, GREATEST(cc, partiel) AS meilleur_note FROM note WHERE note.id_etudiant=1 GROUP BY id_matiere;
+
+Exercice 17:
+SELECT id_classe, COUNT(id) AS nb_etudiants FROM etudiant GROUP BY etudiant.id_classe HAVING COUNT(id)>1;
+
+Exercice 18:
+SELECT cc FROM note WHERE note.id_matiere=1 AND cc>ANY (SELECT MAX(cc) FROM note WHERE note.id_etudiant=1);
+
+Exercice 19:
+SELECT cc FROM note WHERE note.id_matiere=1 AND cc>ANY (SELECT AVG(cc) FROM note WHERE note.id_matiere=1);
+
+Exercice 20:
+SELECT classe.nom AS classe, COUNT(id_classe) AS nb_etudiants FROM classe JOIN etudiant ON classe.id=etudiant.id_classe GROUP BY id_classe;
+
+Exercice 21:
+SELECT classe.nom AS classe, COUNT(etudiant.id) AS nb_etudiants FROM classe JOIN etudiant ON classe.id=etudiant.id_classe GROUP BY classe.id, classe.nom HAVING COUNT(etudiant.id)=0;
