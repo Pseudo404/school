@@ -1,0 +1,13 @@
+<section id="services">
+    <h2 class="subtitle">NOS SERVICES</h2>
+    <div>
+        <?php foreach($data['services'] as $service){ ?>
+            <div>
+                <img class="services-icon" src="assets/images/<?= $service['image']?>" alt="">
+                <p class="title-services"><?= mb_strtoupper($service['name'], "UTF-8")?></p>
+                <p class="tagline"><?= mb_strtoupper($service['tagline'], "UTF-8")?></p>
+                <p class="description"><?= $service['description']?></p>
+            </div>
+        <?php }?>
+    </div>
+</section>

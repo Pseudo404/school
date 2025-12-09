@@ -1,0 +1,30 @@
+<?php require 'controllers/get-user.php'; ?>
+
+<main>
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <?= $user['id']?>
+                </td>
+                <td>
+                    <?= $user['username']?>
+                </td>
+                <td>
+                    <?= $user['email']?>
+                </td>
+                <td>
+                    <?= $user['name']?>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>

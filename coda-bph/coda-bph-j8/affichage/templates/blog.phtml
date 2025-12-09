@@ -1,0 +1,23 @@
+<main id="blog">
+    <ul>
+        <?php foreach($data as $key => $article){ ?>
+        <li>
+            <article>
+                <header>
+                    <h2>
+                        <?= $article['titre'] ?>
+                    </h2>
+                </header>
+                <section>
+                    <p>
+                        <?= $article['resume'] ?>
+                    </p>
+                </section>
+                <footer>
+                    <a href="article/<?= $key ?>">Lire l'article complet</a>
+                </footer>
+            </article>
+        </li>
+        <?php } ?>
+    </ul>
+</main>

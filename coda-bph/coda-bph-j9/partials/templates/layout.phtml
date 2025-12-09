@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>SOIF 200</title>
+</head>
+<body>
+    <header class='_header'>
+    <?php
+    $data_number = 0;
+    require 'templates/partials/_header-footer.phtml';
+    ?>
+    </header>
+
+    <main>
+        <?php
+        require 'templates/partials/_home.phtml';
+        require 'templates/partials/_services.phtml';
+        require 'templates/partials/_prices.phtml';
+        require 'templates/partials/_contact.phtml';
+        ?>
+    </main>
+
+    <footer class='_header'>
+    <?php
+    $data_number = 1;
+    require 'templates/partials/_header-footer.phtml';
+    ?>
+    </footer>
+</body>
+</html>

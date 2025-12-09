@@ -1,0 +1,16 @@
+<section id="matchs">
+    <h2>LES MATCHS</h2>
+    <?php
+        foreach($data as $game){
+    ?>
+    <div class="match">
+        <h3 class="versus"><?= $game['name'] ?></h3>
+        <h5><?= $game['date'] ?></h5>
+        <div class="logo">
+            <img class="<?= $game['teams']['team1']['win'] ?>" src="<?= $game['teams']['team1']['logo_url'] ?>" alt="<?= $game['teams']['team1']['logo_alt'] ?>">
+            <img class="<?= $game['teams']['team2']['win'] ?>" src="<?= $game['teams']['team2']['logo_url'] ?>" alt="<?= $game['teams']['team2']['logo_alt'] ?>">
+        </div>
+        <div class="button_match" ><a href="?route=match&id=<?= $game['id'] ?>">DÉTAILS DU MATCH</a></div>
+    </div>
+    <?php } ?>
+</section>

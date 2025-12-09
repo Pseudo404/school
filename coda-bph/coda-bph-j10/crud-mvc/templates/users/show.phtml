@@ -1,0 +1,15 @@
+<h1>Show</h1>
+<?php
+    $id = $_GET['id'];
+    $user_m = new UserManager;
+    $user = $user_m->findOne($id); 
+?>
+
+    <div>   
+        <tr>
+            <td><?= $user->getId() ?></td>
+            <td><?= $user->getFirstName() ?></td>
+            <td><?= $user->getLastName() ?></td>
+            <td><?= $user->getEmail() ?></td>
+         </tr>
+    </div>

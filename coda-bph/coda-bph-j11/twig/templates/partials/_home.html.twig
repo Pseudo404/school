@@ -1,0 +1,58 @@
+{% extends '../layout.html.twig' %}
+<main>
+    <img id="background" src="assets/images/home_background_league.webp" alt="">
+    <div id="text">
+        <h2>TOUT SUR LA LEAGUE</h2>
+        <h3>Les players, les teams et l'actu des matchs</h3>
+    </div>
+</main>
+<section id="team_a_la_une">
+    <h2>LA TEAM À LA UNE</h2>
+    <div id="all">
+
+        <div id="owl"><img src="{{data['team']['logo_url']}}" alt="{{data['team']['logo_alt']}}"></div>
+
+        <div id="sub-all">
+
+            <div id="sub-title">{{data['team']['name']}}
+                <p>Les players</p>
+            </div>
+
+            <div id="player">
+
+                {% for player in data['team']['players'] %}
+
+                    <div class="player"><img src="{{ player['portrait_url'] }}" alt="{{ player['portrait_alt'] }}">
+                        <legend>{{ player['name'] }}</legend>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="player_a_la_une">
+    <h2>LES PLAYERS À LA UNE</h2>
+    <div>
+        {% for player in data['players'] %}
+            <div>
+                <img src="{{ player['portrait_url'] }}" alt="{{ player['portrait_alt'] }}">
+                <div>
+                    <legend>{{ player['name'] }}</legend>
+                    <h4>{{ player['team_name'] }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>
+<section id="dernier_match">
+    <h2>LE DERNIER MATCH</h2>
+    <h3 class="versus">{{ data['match']['name'] }}</h3>
+    <h5>{{ data['match']['date'] }}</h5>
+    <div>
+        <img id="first_team" src="{{ data['match']['teams']['winner']['logo_url'] }}" alt="{{ data['match']['teams']['winner']['logo_alt'] }}">
+        <img id="second_team" src="{{ data['match']['teams']['loser']['logo_url'] }}" alt="{{ data['match']['teams']['loser']['logo_alt'] }}">
+    </div>
+</section>

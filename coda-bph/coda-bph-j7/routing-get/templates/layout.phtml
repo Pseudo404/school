@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Exercice Routeur MVC</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="index.php">Accueil</a>
+					</li>
+					<li>
+						<a href="index.php?route=a-propos">À propos</a>
+					</li>
+                    <li>
+                        <a href="index.php?route=contact">Contact</a>
+                    </li>
+				</ul>
+			</nav>
+		</header>
+		<?php
+            if ($route === "home")
+            {
+                require "templates/home.phtml";
+            }
+            if ($route === "about")
+            {
+                require "templates/about.phtml";
+            }
+            if ($route === "contact")
+            {
+                require "templates/contact.phtml";
+            }
+            if ($route === "notFound")
+            {
+                require "templates/notFound.phtml";
+            }
+		?>
+	</body>
+</html>

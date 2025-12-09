@@ -1,0 +1,14 @@
+{
+    "name": "coda-bhp-j12/composer-autoload",
+    "require": {
+
+    },
+  "autoload": {
+    "classmap": [
+      "controllers/",
+      "managers/",
+      "models/",
+      "services/"
+    ]
+  }
+}

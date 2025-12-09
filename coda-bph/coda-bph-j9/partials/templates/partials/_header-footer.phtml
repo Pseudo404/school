@@ -1,0 +1,9 @@
+    <div>
+        <img src='assets/images/<?= $data['logo']?>' alt=''>
+    </div>
+    <h3><?= $data['titles'][$data_number]?></h3>
+    <ul>
+        <?php foreach($data['links'] as $link){ ?>
+        <li><a href='#<?= strtolower($link)?>'><?= strtoupper($link) ?></a></li>
+        <?php } ?>
+    </ul>

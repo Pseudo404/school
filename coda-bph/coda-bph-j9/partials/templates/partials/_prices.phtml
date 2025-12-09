@@ -1,0 +1,13 @@
+<section id="tarifs">
+    <h2 class="subtitle">NOS TARIFS</h2>
+    <div>
+        <?php foreach($data['prices'] as $price){ ?>
+            <div>
+                <p class='name'><?= mb_strtoupper($price['name'], 'UTF-8')?></p>
+                <h2 class='price'><?= strtoupper($price['price'])?> €</h2>
+                <p class='duration'><?= mb_strtoupper($price['duration'], 'UTF-8')?></p>
+            </div>
+        <?php }?>
+    </div>
+    <img src="assets/images/<?= $data['logo']?>" alt="">
+</section>

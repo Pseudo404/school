@@ -1,0 +1,396 @@
+:root{
+    --active:#E9BD8C;
+    --button: #933C24;
+    --inter: 'inter';
+    --poppins: 'Poppins';
+    --sansita: 'Sansita Swashed';
+}
+
+/* Typographie, couleur de texte
+ police de texte taille, épaisseur */
+
+.i{
+    color: white;
+    font-family: var(--inter);
+    font-weight: 500;
+    font-size: 2vw;
+}
+
+.circle{
+    text-align: center;
+}
+
+.ajouter{
+    background-color: var(--button);
+    color: white;
+    text-align: center;
+    font-family: var(--inter);
+    font-weight: 500;
+}
+
+.sub-title{
+    color: var(--active);
+    font-size: 2vw;
+    font-weight: 600;
+    font-family: var(--inter);
+}
+
+.menu{
+    color: white;
+    font-family: var(--poppins);
+    font-weight: 600;
+}
+
+.title{
+    color: white;
+    font-size: 5vw;
+    font-weight: 400;
+    font-family: var(--sansita);
+}
+
+.commander{
+    color: white;
+    font-family: var(--inter);
+    font-weight: 600;
+    font-size: 1.85vw;
+    text-align: center;
+}
+
+li a{
+    padding: 0px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5vw;
+}
+
+.top-produit{
+    text-align: center;
+    font-weight: 600;
+    font-size: 6vw;
+    font-family: var(--sansita);
+}
+
+/* Version Desktop Entre 2560px et 1081px car maintenant les smartphones et les tabletes
+ ont de grandes résolution exemple : Oppo Reno13 F 5G -> 2400 x 1080 */
+
+@media (max-width: 2410px){
+
+    .menu>li>a:hover {
+        color: var(--active);
+    }
+
+    .prix, .info{
+        font-weight: 600;
+        font-family: var(--inter);
+        color: white;
+        font-size: 2vw;
+    }
+
+    .ajouter{
+        font-size: 2vw;
+    }
+
+    .info-bonus{
+        text-align: center;
+        font-family: var(--inter);
+        font-weight: 400;
+        font-size: 1.5vw;
+        color: white;
+    }
+
+    .text-reduction{
+        text-align: center;
+    }
+
+    .title-reduction{
+        font-family: var(--sansita);
+        font-weight: 500;
+        font-size: 3vw;
+        color: var(--button);
+    }
+
+    .delice{
+        font-family: var(--inter);
+        text-align: center;
+        color: #5D5D5D;
+        font-weight: 400;
+        font-size: 2vw;
+    }
+
+    .en-savoir-plus{
+        color: white;
+        font-family: var(--inter);
+        font-weight: 600;
+        font-size: 1.85vw;
+        text-align: center;
+    }
+
+    .choix{
+        text-align: center;
+        font-size: 2vw;
+        font-family: var(--poppins);
+        font-weight: 600;
+        color: #5D5D5D;
+        transition: all 0.5s;
+        border-bottom: solid 0vw var(--button);
+    }
+
+    .choix:hover{
+        border-bottom: solid 0.7vw var(--button);
+    }
+
+    #use{
+        transition: all 0.5s;
+        border-bottom: solid 0.7vw var(--button);
+    }
+
+    .liste-gateau:hover #use{
+        border-bottom: solid 0vw var(--button);
+    }
+
+    .about-it{
+        color: white;
+        text-align: center;
+        font-family: var(--sansita);
+        font-weight: 600;
+        font-size: 4vw;
+    }
+
+    .modern-cofee{
+        color: #B9B9B9;
+        text-align: center;
+    }
+
+    .text-p{
+        font-size: 2vw;
+        font-weight: 400;
+        font-family: var(--inter);
+    }
+
+    .lire-plus{
+        color: white;
+        font-family: var(--inter);
+        font-weight: 600;
+        font-size: 2vw;
+        text-align: center;
+    }
+
+    .section-cake>.div-plaisir>div:not(.top-produit, .name, .price, .cake, .div-plaisir){
+        text-align: center;
+    }
+
+    .name, .price{
+        font-weight: 600;
+        font-family: var(--inter);
+        font-size: 1.5vw;
+    }
+
+    .div-footer-logo{
+        text-align: center;
+    }
+
+    .follow{
+        color: var(--active);
+        font-size: 2vw;
+        font-family: var(--inter);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .adresse{
+        line-height: 200%;
+        text-align: start;
+        color: white;
+        font-size: 1.5vw;
+        font-family: var(--poppins);
+        font-weight: 500;
+    }
+
+    .title-reseau{
+        text-align: start;
+        color: var(--active);
+        font-size: 3vw;
+        font-family: var(--inter);
+        font-weight: 700;
+    }
+
+    .date{
+        color: var(--active);
+        font-weight: 400;
+        font-family: var(--poppins);
+        font-size: 1vw;
+    }
+
+    .nom{
+        color: white;
+        font-weight: 400;
+        font-family: var(--poppins);
+        font-size: 1.5vw;
+    }
+
+    .end{
+        color: #737373;
+        font-size: 1.5vw;
+        text-align: center;
+        font-weight: 600;
+        font-family: var(--inter);
+    }
+}
+
+@media (max-width: 1081px){
+
+    .ajouter{
+        font-weight: 600;
+        font-size: 2.85vw;
+        text-align: center;
+    }
+
+    .menu{
+        align-items: center;
+        font-size: 1.5vw;
+    }
+
+    .active{
+        color: var(--active);
+    }
+
+    .commander{
+        font-size: 2.85vw;
+    }
+
+    li a{
+        font-size: 3.5vw;
+    }
+
+    .info, .prix{
+        font-weight: 500;
+        font-size: 3vw;
+    }
+
+    .info-bonus{
+        color: white;
+        font-size: 3vw;
+    }
+
+    .text-reduction{
+        text-align: center;
+    }
+
+    .title-reduction{
+        font-family: var(--sansita);
+        font-weight: 500;
+        font-size: 4vw;
+        color: var(--button);
+    }
+
+    .delice{
+        font-family: var(--inter);
+        text-align: center;
+        font-weight: 400;
+        font-size: 2.5vw;
+    }
+
+    .en-savoir-plus{
+        color: white;
+        font-family: var(--inter);
+        font-weight: 600;
+        font-size: 2.85vw;
+        text-align: center;
+    }
+
+    .choix{
+        text-align: center;
+        font-size: 3.5vw;
+        font-family: var(--poppins);
+        font-weight: 600;
+        color: #5D5D5D;
+    }
+
+    .choix:active{
+        transition: all 0.5s;
+        border-bottom: solid 0.7vw var(--active);
+    }
+
+    .liste-gateau:active #use{
+        transition: all 0.5s;
+        border-bottom: solid 0vw var(--button);
+    }
+
+    .about-it{
+        color: white;
+        text-align: center;
+        font-family: var(--sansita);
+        font-weight: 600;
+        font-size: 4vw;
+    }
+
+    .text-p{
+        text-align: center;
+        font-size: 3vw;
+        font-weight: 400;
+        font-family: var(--inter);
+    }
+
+    .lire-plus{
+        color: white;
+        font-family: var(--inter);
+        font-weight: 600;
+        font-size: 2.85vw;
+        text-align: center;
+    }
+
+    .name{
+        text-align: left;
+    }
+    
+    .name, .price{
+        color: black; font-weight: 600; font-family: var(--inter); font-size: 2.5vw;
+    }
+
+    .follow{
+        color: var(--active);
+        font-size: 4vw;
+        font-family: var(--inter);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .adresse{
+        line-height: 200%;
+        text-align: start;
+        color: white;
+        font-size: 2.5vw;
+        font-family: var(--poppins);
+        font-weight: 600;
+    }
+
+    .title-reseau{
+        text-align: center;
+        color: var(--active);
+        font-size: 6vw;
+        font-family: var(--inter);
+        font-weight: 700;
+    }
+
+    .date{
+        color: var(--active);
+        font-weight: 400;
+        font-family: var(--poppins);
+        font-size: 2.5vw;
+    }
+
+    .nom{
+        color: white;
+        font-weight: 400;
+        font-family: var(--poppins);
+        font-size: 4vw;
+    }
+
+    .end{
+        font-size: 2.8vw;
+        color: #737373;
+        text-align: center;
+        font-weight: 600;
+        font-family: var(--inter);
+    }
+}

@@ -1,0 +1,14 @@
+{% extends '../layout.html.twig' %}
+<section id="teams">
+    <h2>LES TEAMS DE LA LEAGUE</h2>
+    <div>
+        {% for team in data %}
+        <div>
+            <img src="{{ team['logo_url'] }}" alt="{{ team['logo_alt'] }}">
+            <h3>{{ team['name'] }}</h3>
+            <h5>{{ team['desc'] }}</h5>
+            <div><a href='?route=team&id={{ team['id'] }}'><h4>DÉCOUVREZ {{ team['name'] }}</h4></a></div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
