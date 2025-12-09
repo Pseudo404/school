@@ -1,4 +1,5 @@
 Tom : 
+
     - PHP : 25%
         -> création des models/managers avec des attributs + méthodes classiques (getters/setters), création du Router, et des Controllers
 
@@ -9,6 +10,7 @@ Tom :
         -> implémentation du css en profondeur, display:flex, etc...
 
 Robin :
+
     - PHP : 75%
         -> création de méthodes "complexes", complétion des models/managers/controllers, implémentation des data
 
