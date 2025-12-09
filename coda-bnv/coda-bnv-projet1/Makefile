@@ -1,9 +1,9 @@
 # Makefile
 
-NAME = projet-3
+NAME = projet-2
 
 SRCS = main.c \
-	sokoban.c \
+	tic-tac-toe.c \
 
 all: $(NAME)
 
