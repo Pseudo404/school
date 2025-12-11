@@ -111,3 +111,17 @@ Ce document présente le contenu détaillé de chaque séance.
 - Login sécurisé
 
 📁 `coda-bph-j13`
+
+---
+
+## Jour 14 — API
+- Utilisation du PHP
+
+📁 `coda-bph-j14`
+
+---
+
+## Jour 15 — Projet Final
+- Refaire un TriCount de (A à Z)
+
+📁 `coda-bph-j15`
