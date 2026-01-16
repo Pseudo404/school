@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Styliste Dynamique</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Styliste Dynamique</h1>
+            <div class="controls">
+                <div class="control-group">
+                    <h3>1. Modifier la boîte avec classList</h3>
+                    <button onclick="toggleRounded()">Toggle Arrondi</button>
+                    <button onclick="toggleShadow()">Toggle Ombre</button>
+                    <button onclick="toggleBorder()">Toggle Bordure</button>
+                    <button onclick="toggleGradient()">Toggle Gradient</button>
+                    <button onclick="toggleAnimation()">Toggle Animation</button>
+                    <button onclick="resetBox()">Réinitialiser</button>
+                </div>
+                <div class="control-group">
+                    <h3>2. Modifier la boîte avec style</h3>
+                    <button onclick="changeColor('red')">Rouge</button>
+                    <button onclick="changeColor('green')">Vert</button>
+                    <button onclick="changeColor('blue')">Bleu</button>
+                    <button onclick="changeSize('small')">Petit</button>
+                    <button onclick="changeSize('medium')">Moyen</button>
+                    <button onclick="changeSize('large')">Grand</button>
+                </div>
+                <div class="control-group">
+                    <h3>3. Thème de la page</h3>
+                    <button onclick="toggleTheme()">Toggle Thème</button>
+                </div>
+                <div class="control-group">
+                    <h3>4. Galerie de cartes</h3>
+                    <button onclick="highlightCards('highlight')">Highlight</button>
+                    <button onclick="highlightCards('success')">Success</button>
+                    <button onclick="highlightCards('danger')">Danger</button>
+                    <button onclick="highlightCards('none')">Aucun</button>
+                </div>
+            </div>
+            <div class="demo-box" id="demo-box">Boîte de démo</div>
+            <div class="cards-container" id="cards-container">
+                <div class="card">
+                    <h3>Carte 1</h3>
+                    <p>Contenu de la première carte</p>
+                </div>
+                <div class="card">
+                    <h3>Carte 2</h3>
+                    <p>Contenu de la deuxième carte</p>
+                </div>
+                <div class="card">
+                    <h3>Carte 3</h3>
+                    <p>Contenu de la troisième carte</p>
+                </div>
+                <div class="card">
+                    <h3>Carte 4</h3>
+                    <p>Contenu de la quatrième carte</p>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

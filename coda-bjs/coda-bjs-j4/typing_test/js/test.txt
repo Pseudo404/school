@@ -1,0 +1,169 @@
+// js/app.js
+// Version autonome — colle ce fichier dans js/app.js
+
+const SAMPLE_PHRASES = [
+    "The quick brown fox jumps over the lazy dog.",
+    "Bonjour, ceci est un test de dactylographie.",
+    "Practice makes perfect!",
+    "JavaScript is fun to learn.",
+    "Typing tests help increase speed and accuracy."
+];
+
+const typing = {
+    data: {
+        targetText: "",
+        startTime: 0,
+        endTime: 0,
+        errors: 0,
+        completed: false
+    },
+    elements: {},
+    init() {
+        // Build or find UI
+        const app = document.getElementById("typing-app") || document.createElement("div");
+        app.id = "typing-app";
+
+        let textDisplay = document.getElementById("text-display");
+        if (!textDisplay) {
+            textDisplay = document.createElement("div");
+            textDisplay.id = "text-display";
+        }
+
+        let inputField = document.getElementById("input-field");
+        if (!inputField) {
+            inputField = document.createElement("input");
+            inputField.id = "input-field";
+            inputField.type = "text";
+            inputField.autocomplete = "off";
+            inputField.autocorrect = "off";
+            inputField.spellcheck = false;
+        }
+
+        let timeText = document.getElementById("time-text") || document.createElement("div");
+        timeText.id = "time-text";
+
+        let scoreText = document.getElementById("score-text") || document.createElement("div");
+        scoreText.id = "score-text";
+
+        let restartBtn = document.getElementById("restart-btn") || document.createElement("button");
+        restartBtn.id = "restart-btn";
+        restartBtn.textContent = "Restart";
+
+        // Append children if newly created
+        if (!document.getElementById("typing-app")) {
+            app.appendChild(textDisplay);
+            app.appendChild(inputField);
+            app.appendChild(timeText);
+            app.appendChild(scoreText);
+            app.appendChild(restartBtn);
+            document.body.appendChild(app);
+        }
+
+        this.elements = { app, textDisplay, inputField, timeText, scoreText, restartBtn };
+
+        // Setup handlers
+        inputField.addEventListener("input", (e) => this.handleInput(e));
+        inputField.addEventListener("paste", (e) => e.preventDefault()); // block paste
+        restartBtn.addEventListener("click", () => this.reset());
+
+        // Start with a phrase
+        this.reset();
+    },
+
+    pickText() {
+        // Choisir aléatoirement une phrase
+        const idx = Math.floor(Math.random() * SAMPLE_PHRASES.length);
+        return SAMPLE_PHRASES[idx];
+    },
+
+    renderText() {
+        const container = this.elements.textDisplay;
+        container.innerHTML = ""; // clear
+        for (let i = 0; i < this.data.targetText.length; i++) {
+            const span = document.createElement("span");
+            span.className = "char";
+            span.dataset.index = i;
+            span.textContent = this.data.targetText[i];
+            container.appendChild(span);
+        }
+    },
+
+    handleInput() {
+        const input = this.elements.inputField.value;
+        // Start timer on first real input
+        if (this.data.startTime === 0 && input.length > 0) {
+            this.data.startTime = Date.now();
+            this.elements.timeText.textContent = "Temps : 0s";
+        }
+
+        const target = this.data.targetText;
+        const spans = this.elements.textDisplay.querySelectorAll(".char");
+        let errors = 0;
+        const minLen = Math.min(input.length, target.length);
+
+        // Mark correct/incorrect for positions within minLen
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].classList.remove("correct", "incorrect", "pending");
+            if (i < input.length) {
+                if (input[i] === target[i]) {
+                    spans[i].classList.add("correct");
+                } else {
+                    spans[i].classList.add("incorrect");
+                    errors++;
+                }
+            } else {
+                spans[i].classList.add("pending");
+            }
+        }
+
+        // If input longer than target, count extras as errors (or ignore — here we count)
+        if (input.length > target.length) {
+            errors += input.length - target.length;
+        }
+
+        this.data.errors = errors;
+
+        // Update stats in UI
+        const elapsedMs = this.data.startTime ? (Date.now() - this.data.startTime) : 0;
+        const elapsedS = Math.floor(elapsedMs / 1000);
+        this.elements.timeText.textContent = `Temps : ${elapsedS}s`;
+        this.elements.scoreText.textContent = `Erreurs : ${this.data.errors} • ${Math.round((input.length / target.length) * 100)}%`;
+
+        // Completion check
+        if (input === target && input.length > 0) {
+            this.finish();
+        }
+    },
+
+    finish() {
+        if (this.data.completed) return;
+        this.data.endTime = Date.now();
+        this.data.completed = true;
+        const elapsedMs = this.data.endTime - this.data.startTime;
+        const elapsedMin = elapsedMs / (1000 * 60);
+        const chars = this.data.targetText.length;
+        const wpm = elapsedMin > 0 ? Math.round((chars / 5) / elapsedMin) : 0;
+
+        this.elements.timeText.textContent = `Terminé en ${Math.round(elapsedMs / 1000)}s • WPM: ${wpm}`;
+        this.elements.scoreText.textContent = `Erreurs : ${this.data.errors}`;
+    },
+
+    reset() {
+        this.data.targetText = this.pickText();
+        this.data.startTime = 0;
+        this.data.endTime = 0;
+        this.data.errors = 0;
+        this.data.completed = false;
+        this.elements.inputField.value = "";
+        this.renderText();
+        this.elements.timeText.textContent = "Temps : 0s";
+        this.elements.scoreText.textContent = "Erreurs : 0";
+        this.elements.inputField.focus();
+    }
+};
+
+// Auto-init on DOM ready
+document.addEventListener("DOMContentLoaded", () => typing.init());
+
+// Optionally expose for debugging
+window._typing = typing;

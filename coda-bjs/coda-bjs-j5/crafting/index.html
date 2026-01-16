@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Crafting</title>
+</head>
+<body>
+    <h1>Système de Crafting</h1>
+
+    <button id="getIron">Récupérer du fer brut</button>
+    <button id="getWood">Récupérer du bois brut</button>
+    <ul id="list">
+        <li>Ressources : </li>
+        <li id="iron">iron : 0</li>
+        <li id="wood">wood : 0</li>
+        <li id="planks">planches : 0</li>
+        <li id="stick">bâton : 0</li>
+        <li id="ironIngot">l'ingot de fer : 0</li>
+        <li id="sword">épée : 0</li>
+        <li id="pickaxe">pioche : 0</li>
+    </ul>
+
+    <select name="" id="selectCraft">
+        <option value="planks">Planche</option>
+        <option value="stick">Bâton</option>
+        <option value="ironIngot">L'ingot de fer</option>
+        <option value="sword">Épée</option>
+        <option value="pickaxe">Pioche</option>
+    </select>
+
+    <p id="prix">1 de bois</p>
+
+    <button id="craft" onclick="craft()">Craft</button>
+
+    <div id="log"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

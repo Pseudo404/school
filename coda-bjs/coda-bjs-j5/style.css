@@ -1,0 +1,164 @@
+/* Reset minimal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fond de l'application */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e1e1e, #0b0b0b);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cadran principal */
+#cadre {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #111;
+    border: 8px solid #e6edf3;
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Point central */
+#cadre::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #e6edf3;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Base commune des aiguilles */
+#heure,
+#minute,
+#second {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 4px;
+    transition: none;
+    transform-origin: bottom center;
+}
+
+/* Aiguille des heures */
+#heure {
+    width: 8px;
+    height: 80px;
+    background: #ffffff;
+    z-index: 3;
+}
+
+/* Aiguille des minutes */
+#minute {
+    width: 5px;
+    height: 110px;
+    background: #cfd8dc;
+    z-index: 4;
+}
+
+/* Aiguille des secondes */
+#second {
+    width: 2px;
+    height: 130px;
+    background: #ff3b3b;
+    z-index: 5;
+}
+
+/* Aiguille des millisecondes */
+#ms {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 1px;
+    height: 140px;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.2),
+        #00e5ff
+    );
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    z-index: 6;
+
+    box-shadow:
+        0 0 6px rgba(0, 229, 255, 0.8);
+}
+
+/* Conteneur des boutons */
+#div-button {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Style commun des boutons */
+#div-button button {
+    width: 120px;
+    height: 45px;
+    border-radius: 25px;
+    border: 2px solid #e6edf3;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    color: #e6edf3;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.7),
+        inset 0 0 6px rgba(255, 255, 255, 0.05);
+
+    transition: all 0.25s ease;
+}
+
+/* Texte des boutons */
+#start::before {
+    content: "START";
+}
+
+#pause::before {
+    content: "PAUSE";
+}
+
+/* Hover */
+#div-button button:hover {
+    background: linear-gradient(145deg, #232323, #141414);
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.9),
+        inset 0 0 8px rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Effet clic */
+#div-button button:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.8),
+        inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Accent couleur subtil */
+#start {
+    border-color: #4caf50;
+}
+
+#pause {
+    border-color: #ff3b3b;
+}

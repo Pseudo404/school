@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>Distributeur automatique</title>
+    </head>
+    <body>
+
+        <div class="machine">
+            <h2>Distributeur automatique</h2>
+
+            <h3>Catalogue</h3>
+            <ul>
+                <li>💧 Eau — 1.00 €</li>
+                <li>🥤 Soda — 1.50 €</li>
+                <li>🧃 Jus — 2.00 €</li>
+                <li>☕ Café — 1.20 €</li>
+            </ul>
+
+            <h3>Insertion d'argent</h3>
+            <input type="number" id="money" step="0.10" min="0">
+            <button onclick="addMoney()">Insérer</button>
+
+            <p>Solde : <strong><span id="solde">0.00</span> €</strong></p>
+
+            <h3>Choix du produit</h3>
+            <button onclick="acheter('eau')">Eau</button>
+            <button onclick="acheter('soda')">Soda</button>
+            <button onclick="acheter('jus')">Jus</button>
+            <button onclick="acheter('cafe')">Café</button>
+
+            <div class="log" id="log"></div>
+        </div>
+
+    </body>
+</html>
